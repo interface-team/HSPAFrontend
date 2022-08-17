@@ -1,38 +1,51 @@
+
 [
   {
     "ID": 1,
+    "SellRent": 1,
     "Name": "Birla House",
     "Type": "House",
-    "Price": 12000
+    "Price": 12000,
+    "Image": "p1"
   },
   {
     "ID": 2,
+    "SellRent": 1,
     "Name": "Villa House",
     "Type": "Villa",
-    "Price": 22000
+    "Price": 22000,
+    "Image": "p2"
   },
   {
     "ID": 3,
+    "SellRent": 2,
     "Name": "Aditya Tent",
     "Type": "Tent",
-    "Price": 4000
+    "Price": 4000,
+    "Image": "p3"
   },
   {
     "ID": 4,
+    "SellRent": 1,
     "Name": "Akash Oyo",
     "Type": "Oyo",
-    "Price": 8000
+    "Price": 8000,
+    "Image": "p4"
   },
   {
     "ID": 5,
+    "SellRent": 2,
     "Name": "Aman HomeStay",
     "Type": "HomeStay",
-    "Price": 700
+    "Price": 700,
+    "Image": "p5"
   },
   {
     "ID": 6,
+    "SellRent": 1,
     "Name": "Aman Bar",
     "Type": "Bar",
-    "Price": 3700
+    "Price": 3700,
+    "Image": "p6"
   }
 ]

@@ -1,0 +1,5 @@
+Object.keys() - returns an array containing the object's keys.
+Object.values() - returns an array containing the object's values.
+Object.entries() - returns an array containing key-value pair arrays.
+
+
