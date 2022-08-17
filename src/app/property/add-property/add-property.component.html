@@ -1,4 +1,36 @@
 <!-- <button (click)="onBack()" class="btn btn-primary" >Back</button> -->
 
+<div class="card">
+  <div class="card-header">
+    Add New Property
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)='onSubmit(Form)' #Form="ngForm">
+      <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="email" class="form-control" #propName="ngModel" id="Name" ngModel name="Name" required minlength="5">
+        <span *ngIf="!propName.valid && propName.touched" class="error-block">
+          <span >Please Provide Name</span>
+          <!-- <span>Name Atleast 5 Character Long</span> -->
+        </span>
+      </div>
 
+      <div class="mb-3">
+        <label for="Type" class="form-label">Type</label>
+        <input type="password" class="form-control" id="Type" ngModel name="Type">
+
+      </div>
+
+      <div class="mb-3">
+        <label for="Price" class="form-label">Price</label>
+        <input type="password" class="form-control" id="Price" ngModel name="Price">
+      </div>
+
+      <div class="mb-3">
+        <button [disabled]="!Form.valid" type="submit" class="btn btn-primary m-2">Submit</button>
+        <button type="reset" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
 
