@@ -1,0 +1,38 @@
+[
+  {
+    "ID": 1,
+    "Name": "Birla House",
+    "Type": "House",
+    "Price": 12000
+  },
+  {
+    "ID": 2,
+    "Name": "Villa House",
+    "Type": "Villa",
+    "Price": 22000
+  },
+  {
+    "ID": 3,
+    "Name": "Aditya Tent",
+    "Type": "Tent",
+    "Price": 4000
+  },
+  {
+    "ID": 4,
+    "Name": "Akash Oyo",
+    "Type": "Oyo",
+    "Price": 8000
+  },
+  {
+    "ID": 5,
+    "Name": "Aman HomeStay",
+    "Type": "HomeStay",
+    "Price": 700
+  },
+  {
+    "ID": 6,
+    "Name": "Aman Bar",
+    "Type": "Bar",
+    "Price": 3700
+  }
+]
