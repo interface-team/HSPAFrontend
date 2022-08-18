@@ -8,7 +8,7 @@
     <form (ngSubmit)='onSubmit(Form)' #Form="ngForm">
       <div class="mb-3">
         <label for="Name" class="form-label">Name</label>
-        <input type="email" class="form-control" #propName="ngModel" id="Name" ngModel name="Name" required minlength="5">
+        <input type="text" class="form-control" #propName="ngModel" id="Name" ngModel name="Name" required minlength="5">
         <span *ngIf="!propName.valid && propName.touched" class="error-block">
           <span >Please Provide Name</span>
           <!-- <span>Name Atleast 5 Character Long</span> -->
@@ -17,13 +17,13 @@
 
       <div class="mb-3">
         <label for="Type" class="form-label">Type</label>
-        <input type="password" class="form-control" id="Type" ngModel name="Type">
+        <input type="text" class="form-control" id="Type" ngModel name="Type">
 
       </div>
 
       <div class="mb-3">
         <label for="Price" class="form-label">Price</label>
-        <input type="password" class="form-control" id="Price" ngModel name="Price">
+        <input type="text" class="form-control" id="Price" ngModel name="Price">
       </div>
 
       <div class="mb-3">

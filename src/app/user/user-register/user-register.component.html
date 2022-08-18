@@ -1,0 +1,72 @@
+<!-- <button (click)="onBack()" class="btn btn-primary" >Back</button> -->
+
+<div class="card">
+  <div class="card-header">
+    Register
+  </div>
+  <div class="card-body">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control"  formControlName="userName">
+        <span *ngIf="!registrationForm.get('userName')?.valid && registrationForm.get('userName')?.touched" class="error-block">
+          Please Provide Name
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="Email" class="form-label" >Email</label>
+        <input type="email" class="form-control" formControlName="userEmail">
+        <span *ngIf="!userEmail.valid && userEmail.touched" class="error-block">
+          <span *ngIf="userEmail.hasError('error')">
+            Please Provide Valid Email
+          </span>
+          <span *ngIf="userEmail.hasError('required')">
+            Please Provide Email
+          </span>
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="Password" class="form-control" formControlName="userPassword" >
+        <span *ngIf="!userPassword.valid && userPassword.touched" class="error-block">
+          Password Must Be 8 Character
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+        <input type="Password" class="form-control" formControlName="userConfirmPassword">
+        <span *ngIf="userConfirmPassword.touched" class="error-block">
+          <span *ngIf="!userConfirmPassword.valid && userConfirmPassword.hasError('required')" class="error-block">
+            Please Provide Confirm Password
+          </span>
+          <span *ngIf="registrationForm.hasError('notmatched')" class="error-block">
+            Password and Confirm Password Must Be Same
+          </span>
+
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="Mobile" class="form-label">Mobile</label>
+        <input type="tel" class="form-control" formControlName="userMobile">
+        <span *ngIf="!userMobile.valid && userMobile.touched" class="error-block">
+          Mobile Number Must Be 10 Digit (0-9 only)
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary m-2">Submit</button>
+        <button type="reset" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+    <span>
+      Form Value : {{ registrationForm.value | json}}<br>
+      Form Status : {{ registrationForm.valid }}<br>
+    </span>
+  </div>
+</div>
+

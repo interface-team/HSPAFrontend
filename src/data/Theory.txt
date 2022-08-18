@@ -1,5 +1,86 @@
+-- Convert object to array
 Object.keys() - returns an array containing the object's keys.
 Object.values() - returns an array containing the object's values.
 Object.entries() - returns an array containing key-value pair arrays.
+
+-- Custom Validator
+https://www.infragistics.com/community/blogs/b/infragistics/posts/how-to-create-custom-validators-for-angular-reactive-forms
+
+
+#M1:
+
+The type of the first parameter is AbstractControl because it is a base class of FormControl, FormArray, and FormGroup,
+and it allows you to read the value of the control passed to the custom validator function.
+The custom validator returns either of the following:
+
+If the validation fails, it returns an object, which contains a key value pair. Key is the name of the error and the value is always Boolean true.
+If the validation does not fail, it returns null.
+
+Now, we can implement the ageRangeValidator custom validator in the below listing:
+
+function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+
+    if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+        return { 'ageRange': true };
+    }
+    return null;
+}
+
+age: new FormControl(null, [ageRangeValidator])
+
+<div class="alert  alert-danger" *ngIf="loginForm.get('age').dirty && loginForm.get('age').errors && loginForm.get('age').errors.ageRange ">
+     Age should be in between 18 to 45 years
+ </div>
+
+
+#M2 :
+
+
+Passing parameters to a Custom Validator
+An Angular custom validator does not directly take extra input parameters aside from the reference of the control. To pass extra parameters, you need to add a custom validator inside a factory function. The factory function will then return a custom validator.
+
+You heard right: in JavaScript, a function can return another function.
+
+Essentially, to pass parameters to a custom validator you need to follow these steps:
+
+Create a factory function and pass parameters that will be passed to the custom validator to this function.
+The return type of the factory function should be ValidatorFn which is part of @angular/forms
+Return the custom validator from the factory function.
+The factory function syntax will be as follows:
+
+function ageRangeValidator(min: number, max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+        if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
+            return { 'ageRange': true };
+        }
+        return null;
+    };
+}
+
+age: new FormControl(null, [ageRangeValidator(this.min, this.max)])
+
+<div class="alert  alert-danger" *ngIf="loginForm.get('age').dirty && loginForm.get('age').errors && loginForm.get('age').errors.ageRange ">
+      Age should be in between {{min}} to {{max}} years
+  </div>
+
+
+
+
+#M3 :
+
+passwordMatchingValidator(control: AbstractControl): { [key: string]: boolean } | null {
+
+    return control.get('userPassword')?.value ===
+      control.get('userConfirmPassword')?.value
+      ? null
+      : { notmatched: true };
+  }
+
+
+
+
+
+Alertyfy
+npm install alertifyjs
 
 

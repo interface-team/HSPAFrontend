@@ -1,0 +1,13 @@
+/* .ng-invalid.ng-touched{
+  border-color: red;
+}
+
+.error-block{
+  color: red;
+} */
+
+/*
+move above code to global level
+create css filr in assets folder
+import in style.css file present in global
+*/
