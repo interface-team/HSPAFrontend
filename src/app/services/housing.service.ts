@@ -25,4 +25,18 @@ export class HousingService {
       })
     );
   }
+
+  getAllCities():Observable<string[]>{
+    //var url='http://localhost:38043/api/city';
+    var url = 'http://localhost:56447/api/city/GetCities'
+    return this.http.get<string[]>(url);
+  }
+
+
+
+  addCity():Observable<string[]>{
+    //var url='http://localhost:38043/api/city';
+    var url = 'http://localhost:56447/api/city/GetCities'
+    return this.http.get<string[]>(url);
+  }
 }
