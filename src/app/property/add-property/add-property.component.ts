@@ -22,7 +22,7 @@ export class AddPropertyComponent implements OnInit {
     var item = { "name": "Delhi"};
 
     let city = new City();
-    city.name="Hyderabad";
+    city.name="Goa";
 
     this.ser.addCity(city).subscribe(data=>{
       console.log("data: " + data);
