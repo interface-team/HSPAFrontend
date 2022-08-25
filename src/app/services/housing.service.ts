@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { IProperty } from '../property/IProperty.interface';
+import { City } from 'src/Models/City';
 
 @Injectable({
   providedIn: 'root',
@@ -28,15 +29,20 @@ export class HousingService {
 
   getAllCities():Observable<string[]>{
     //var url='http://localhost:38043/api/city';
-    var url = 'http://localhost:56447/api/city/GetCities'
+    //var url = 'http://localhost:56447/api/city/GetCities'
+    //var url = '/api/city/GetCities'
+    var url='http://interfaceteam-001-site1.ctempurl.com/api/city/GetCities'
     return this.http.get<string[]>(url);
   }
 
 
 
-  addCity():Observable<string[]>{
-    //var url='http://localhost:38043/api/city';
-    var url = 'http://localhost:56447/api/city/GetCities'
-    return this.http.get<string[]>(url);
+  addCity(data:City):Observable<number>{
+
+    //var url = 'http://localhost:56447/api/city/AddCity';
+    //var url = '/api/city/AddCity';
+    var url = 'http://interfaceteam-001-site1.ctempurl.com/api/city/AddCity'
+    //var data = { "name": "Goa"};
+    return this.http.post<number>(url,data);
   }
 }
